@@ -17,9 +17,15 @@ app.use(bodyParser.json());
 //     const name = req.header('name');
 //     res.send(`<h1>Student ID is ${id}, name is ${name}</h1>`);
 // });
-app.post("/user",(req,res)=>{
-    const name= req.body.name;
-    res.send(`Welcome ${name}`);
+
+app.get("/register",(req,res)=>{
+    res.sendFile(__dirname+"/index.html");
+});
+
+app.post("/register",(req,res)=>{
+    const fullName= req.body.fullName;
+    const age= req.body.age;
+    res.send(`<h2>Welcome !! ${fullName}, Your age is${age}</h2>`);
 });
 
 
